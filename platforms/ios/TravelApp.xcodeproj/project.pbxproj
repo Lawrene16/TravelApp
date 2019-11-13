@@ -48,6 +48,8 @@
 		F7E6DC22FD0B446CAE80D448 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D3FFDD431F4BDC8848DB3D /* FBSDKCoreKit.framework */; };
 		6CEB03E26F2F4E12B47E9406 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015BA61854E84E7282DBCF23 /* FBSDKLoginKit.framework */; };
 		F0E9191A050C4A5DBBD03485 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F537119BB144B17A4B2BE34 /* FBSDKShareKit.framework */; };
+		51AFE4F138904D23941ADE54 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6ACB22E4794EAD8AC20CC5 /* CDVLocation.m */; };
+		52A1694BA67A4B25AB69407D /* NativeGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2B0445491D464E809CA759 /* NativeGeocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,10 @@
 		B0D3FFDD431F4BDC8848DB3D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; name = "FBSDKCoreKit.framework"; path = "TravelApp/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		015BA61854E84E7282DBCF23 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; name = "FBSDKLoginKit.framework"; path = "TravelApp/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		0F537119BB144B17A4B2BE34 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "TravelApp/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		BE6ACB22E4794EAD8AC20CC5 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		901C6DEDB4854DEBB3E8C439 /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		3D2B0445491D464E809CA759 /* NativeGeocoder.swift */ = {isa = PBXFileReference; name = "NativeGeocoder.swift"; path = "cordova-plugin-nativegeocoder/NativeGeocoder.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		F128486BFCDB4B5D86DBF104 /* NativeGeocoder-Bridging-Header.h */ = {isa = PBXFileReference; name = "NativeGeocoder-Bridging-Header.h"; path = "cordova-plugin-nativegeocoder/NativeGeocoder-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +325,10 @@
 				A3D5C191E0AC432C8B1AD4C1 /* CDVExif.h */,
 				D5DA98E170364771A500AEBA /* FacebookConnectPlugin.m */,
 				7A7B628C626C4F00AA00AC78 /* FacebookConnectPlugin.h */,
+				BE6ACB22E4794EAD8AC20CC5 /* CDVLocation.m */,
+				901C6DEDB4854DEBB3E8C439 /* CDVLocation.h */,
+				3D2B0445491D464E809CA759 /* NativeGeocoder.swift */,
+				F128486BFCDB4B5D86DBF104 /* NativeGeocoder-Bridging-Header.h */,
 			);
 			name = Plugins;
 			path = TravelApp/Plugins;
@@ -464,6 +474,8 @@
 				90EF7F5629144095B58A74BB /* CDVCamera.m in Sources */,
 				DA5FB8AB54EC4AC4BFF7D4BF /* CDVJpegHeaderWriter.m in Sources */,
 				6FF5AD9E215F42FB9B70B18B /* FacebookConnectPlugin.m in Sources */,
+				51AFE4F138904D23941ADE54 /* CDVLocation.m in Sources */,
+				52A1694BA67A4B25AB69407D /* NativeGeocoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +529,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -557,6 +573,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -601,6 +620,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.travelapp.mvp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -643,6 +666,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.travelapp.mvp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

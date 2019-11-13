@@ -45,6 +45,9 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>We use your location for full functionality of certain app features.</string>
+        </edit-config>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
@@ -115,4 +118,8 @@
     </plugin>
     <engine name="ios" spec="5.0.1" />
     <engine name="android" spec="7.1.4" />
+    <plugin name="cordova-plugin-geolocation" spec="4.0.2" />
+    <plugin name="cordova-plugin-nativegeocoder" spec="3.2.2">
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Use geocoder service" />
+    </plugin>
 </widget>

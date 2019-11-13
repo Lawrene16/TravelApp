@@ -11,7 +11,7 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { Facebook } from "@ionic-native/facebook/ngx";
 import { GooglePlus } from "@ionic-native/google-plus/ngx";
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFireModule } from "angularfire2";
 import * as firebase from "firebase";
 
@@ -44,6 +44,7 @@ firebase.initializeApp(firebaseconfig);
     GooglePlus,
     SplashScreen,
     Camera,
+    Geolocation,
     // Crop,
     Facebook,
     // ImagePicker,

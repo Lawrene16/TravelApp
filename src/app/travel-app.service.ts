@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import * as firebase from "firebase";
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { reject } from 'q';
-import { resolve } from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +50,25 @@ export class TravelAppService {
         storageRef.getDownloadURL().then((url) =>{
           this.firedata.ref('/users').child(useruid).update({
             photoURL: url
+          }).then((res) =>{
+            resolve(res)
+          }).catch((err) =>{
+            reject(err)
+          })
+        })
+      }).catch((err) =>{
+        reject(err)
+      })
+    })
+  }
+
+  uploadCoverPhoto(useruid, photoString){
+    return new Promise((resolve, reject) => {
+      var storageRef = this.firestore.ref('/users').child('coverPhotos').child(useruid+".jpg");
+      storageRef.putString(photoString, firebase.storage.StringFormat.DATA_URL).then((res) =>{
+        storageRef.getDownloadURL().then((url) =>{
+          this.firedata.ref('/users').child(useruid).update({
+            coverPhoto: url
           }).then((res) =>{
             resolve(res)
           }).catch((err) =>{
@@ -114,12 +131,11 @@ export class TravelAppService {
   }
 
   // Update the user details
-  updateUserDetails(firstname, lastname, phoneNumber, aboutMe ){
+  updateUserDetails(firstname, lastname, aboutMe ){
     return new Promise((resolve, reject) => {
       this.firedata.ref('/users').child(this.fireauth.currentUser.uid).update({
         firstname: firstname,
         lastname: lastname,
-        phoneNumber: phoneNumber,
         aboutMe: aboutMe,
       }).then((res) =>{
         resolve(res)

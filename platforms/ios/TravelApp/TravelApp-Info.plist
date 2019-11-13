@@ -103,5 +103,7 @@
 	<string>TravelApp</string>
 	<key>FacebookHybridAppEvents</key>
 	<string>false</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Use geocoder service</string>
 </dict>
 </plist>

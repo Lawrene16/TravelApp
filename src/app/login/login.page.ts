@@ -11,8 +11,8 @@ import { TravelAppService } from '../travel-app.service';
 })
 export class LoginPage implements OnInit {
 
-  email = "";
-  password = "";
+  email = "a@gmail.com";
+  password = "aaaaaaaa";
 
   constructor(
     public router: Router,
@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.login()
   }
 
   async presentToast(message) {
