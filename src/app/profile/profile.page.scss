@@ -1,0 +1,40 @@
+.userimg{
+    -webkit-border-radius: 50%;
+    height: 120px; 
+   width: 120px; 
+  border: 2px solid #fff;
+  border-radius: 50%;
+  // box-shadow: 0 0 5px gray;
+  display: inline-block;
+  // margin-left: auto;
+  // margin-right: auto;
+
+  }
+
+  .eachgalleryimage{
+    width: 24.5vw; 
+    height: 25vw; 
+    margin: 1px;
+    float: left;
+    background-color: rgb(216, 216, 216);
+  }
+
+  // .titles{
+//     margin-left: 16px;
+//     font-size: 16px;
+//     opacity: 0.7;
+//     margin-top: 30px;
+// }
+
+//   .btn{
+//     // border: 2px solid color($colors, buttoncolors);
+//     // background-color: color($colors, buttoncolors);
+//     // color: color($colors, light);
+//     padding: 15px;
+//     font-size: 18px;
+//     margin-bottom: 40px;
+//     border-radius: 25px;
+//     margin-top: 20px;
+//     width: 40vw;
+//     cursor: pointer;
+// }
