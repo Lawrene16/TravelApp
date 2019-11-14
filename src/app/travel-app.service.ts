@@ -81,6 +81,26 @@ export class TravelAppService {
     })
   }
 
+  uploadTripPhoto(useruid, photoString){
+    var tripuid = this.firedata.ref('/users').push().key;
+    return new Promise((resolve, reject) => {
+      var storageRef = this.firestore.ref('/trips').child(useruid).child(tripuid+".jpg");
+      storageRef.putString(photoString, firebase.storage.StringFormat.DATA_URL).then((res) =>{
+        storageRef.getDownloadURL().then((url) =>{
+          this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
+            photo: url
+          }).then((res) =>{
+            resolve(res)
+          }).catch((err) =>{
+            reject(err)
+          })
+        })
+      }).catch((err) =>{
+        reject(err)
+      })
+    })
+  }
+
   // Login with facebook
   facebookLogin(){
     return new Promise((resolve, reject) => {

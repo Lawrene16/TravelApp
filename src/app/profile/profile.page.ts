@@ -176,37 +176,37 @@ export class ProfilePage{
   //   }
   // }
 
-  async presentActionSheet(index) {
+  // async presentActionSheet(index) {
 
-    console.log(index)
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Options',
-      buttons: [
-        {
-          text: ' Capture Image',
-          icon: 'camera',
-          handler: () => {
-            this.AccessCamera(index);
-          }
-        },  
-      {
-        text: 'Pick from Gallery',
-        icon: 'photos',
-        handler: () => {
-          this.AccessGallery(index)
-        }
-      },
-      {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel',
-        handler: () => {
-          // console.log('Cancel clicked');
-        }
-      }]
-    });
-    await actionSheet.present();
-  }
+  //   console.log(index)
+  //   const actionSheet = await this.actionSheetCtrl.create({
+  //     header: 'Options',
+  //     buttons: [
+  //       {
+  //         text: ' Capture Image',
+  //         icon: 'camera',
+  //         handler: () => {
+  //           this.AccessCamera(index);
+  //         }
+  //       },  
+  //     {
+  //       text: 'Pick from Gallery',
+  //       icon: 'photos',
+  //       handler: () => {
+  //         this.AccessGallery(index)
+  //       }
+  //     },
+  //     {
+  //       text: 'Cancel',
+  //       icon: 'close',
+  //       role: 'cancel',
+  //       handler: () => {
+  //         // console.log('Cancel clicked');
+  //       }
+  //     }]
+  //   });
+  //   await actionSheet.present();
+  // }
 
   AccessCamera(index) {
 

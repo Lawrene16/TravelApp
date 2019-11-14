@@ -14,7 +14,7 @@
   <div style="height: 150px; background-color: rgb(216, 216, 216);">
     <img style="height: 150px; object-fit: cover; width: 100vw;" [src]="base64CoverPhoto">
 
-    <ion-icon style="position: absolute; top: 110px; font-size: 34px; right: 10px; z-index: 4;" name="camera" (click)="presentActionSheet(0)" color="light">
+    <ion-icon style="position: absolute; top: 110px; font-size: 34px; right: 10px; z-index: 4;" name="camera" (click)="AccessGallery(0)" color="light">
     </ion-icon>
   </div>
 
@@ -27,7 +27,7 @@
   height: 40px;
   top: 90px; width: 100vw;">
 
-  <div (click)="presentActionSheet(1)" style="margin-left: 55vw; height: 30px; width: 30px; border-radius: 50%; padding: 1px; background-color: rgb(216, 216, 216); ">
+  <div (click)="AccessGallery(1)" style="margin-left: 55vw; height: 30px; width: 30px; border-radius: 50%; padding: 1px; background-color: rgb(216, 216, 216); ">
     <ion-icon style="font-size: 26px;" name="camera" color="light"></ion-icon>
   </div>
 
