@@ -9,8 +9,8 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 export class TravelAppService {
 
   firedata = firebase.database();
-    firestore = firebase.storage();
-
+  firestore = firebase.storage();
+  tripsarray = [];1
   fireauth = firebase.auth();
 
   constructor(
@@ -45,7 +45,7 @@ export class TravelAppService {
   // Uploads the user profile picture
   uploadProfilePic(useruid, photoString){
     return new Promise((resolve, reject) => {
-      var storageRef = this.firestore.ref('/users').child('profilePhotos').child(useruid+".jpg");
+      var storageRef = this.firestore.ref('/profilePhotos').child(useruid+".jpg");
       storageRef.putString(photoString, firebase.storage.StringFormat.DATA_URL).then((res) =>{
         storageRef.getDownloadURL().then((url) =>{
           this.firedata.ref('/users').child(useruid).update({
@@ -64,7 +64,7 @@ export class TravelAppService {
 
   uploadCoverPhoto(useruid, photoString){
     return new Promise((resolve, reject) => {
-      var storageRef = this.firestore.ref('/users').child('coverPhotos').child(useruid+".jpg");
+      var storageRef = this.firestore.ref('/coverPhotos').child(useruid+".jpg");
       storageRef.putString(photoString, firebase.storage.StringFormat.DATA_URL).then((res) =>{
         storageRef.getDownloadURL().then((url) =>{
           this.firedata.ref('/users').child(useruid).update({
@@ -93,6 +93,30 @@ export class TravelAppService {
           reject(err);
         })
       })
+    })
+  }
+
+  // Fetch all the user's trips
+  fetchTrips(){
+    return new Promise((resolve, reject) => {
+      this.firedata.ref('/users').child(this.fireauth.currentUser.uid).child('trips').orderByChild("mjbmmn")
+      .once("value", snapshot => {
+        this.tripsarray  = [];
+        let result = snapshot.val();
+        for (var key in result) {
+          this.tripsarray.push(result[key]);
+        }
+      }).then(() =>{
+        resolve(this.tripsarray)
+      }).catch((err) =>{
+        reject(err)
+      })
+    })
+  }
+
+  addTrip(){
+    return new Promise((resolve, reject) => {
+
     })
   }
 

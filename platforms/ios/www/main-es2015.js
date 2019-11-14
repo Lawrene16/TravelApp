@@ -8,9 +8,21 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./addtrip/addtrip.module": [
+		"./src/app/addtrip/addtrip.module.ts",
+		"addtrip-addtrip-module"
+	],
+	"./discover/discover.module": [
+		"./src/app/discover/discover.module.ts",
+		"discover-discover-module"
+	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
 		"login-login-module"
+	],
+	"./more/more.module": [
+		"./src/app/more/more.module.ts",
+		"more-more-module"
 	],
 	"./profile/profile.module": [
 		"./src/app/profile/profile.module.ts",
@@ -19,6 +31,14 @@ var map = {
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
 		"register-register-module"
+	],
+	"./search/search.module": [
+		"./src/app/search/search.module.ts",
+		"search-search-module"
+	],
+	"./tabs/tabs.module": [
+		"./src/app/tabs/tabs.module.ts",
+		"tabs-tabs-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -488,8 +508,8 @@ const routes = [
         pathMatch: 'full'
     },
     {
-        path: 'home',
-        loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
+        path: '',
+        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule)
     },
     {
         path: 'list',
@@ -497,7 +517,12 @@ const routes = [
     },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
     { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-    { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
+    { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+    { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+    { path: 'discover', loadChildren: './discover/discover.module#DiscoverPageModule' },
+    { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+    { path: 'addtrip', loadChildren: './addtrip/addtrip.module#AddtripPageModule' },
+    { path: 'more', loadChildren: './more/more.module#MorePageModule' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -641,12 +666,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ "./node_modules/@ionic-native/facebook/ngx/index.js");
 /* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "./node_modules/@ionic-native/google-plus/ngx/index.js");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
-/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angularfire2 */ "./node_modules/angularfire2/index.js");
-/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(angularfire2__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! angularfire2 */ "./node_modules/angularfire2/index.js");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(angularfire2__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 
 
 
@@ -663,6 +689,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var firebaseconfig = {
     apiKey: "AIzaSyCkvYY31eCJguhDl63ADJu16l7qGkK7l7w",
     authDomain: "jahztravelapp.firebaseapp.com",
@@ -672,30 +699,31 @@ var firebaseconfig = {
     messagingSenderId: "970318906848",
     appId: "1:970318906848:web:979a198774cac488d79785"
 };
-firebase__WEBPACK_IMPORTED_MODULE_11__["initializeApp"](firebaseconfig);
+firebase__WEBPACK_IMPORTED_MODULE_12__["initializeApp"](firebaseconfig);
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]],
         entryComponents: [],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
-            angularfire2__WEBPACK_IMPORTED_MODULE_10__["AngularFireModule"].initializeApp(firebaseconfig),
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"]
+            angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(firebaseconfig),
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"]
         ],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_8__["GooglePlus"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
             _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__["Camera"],
+            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_10__["Geolocation"],
             // Crop,
             _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_7__["Facebook"],
             // ImagePicker,
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]]
     })
 ], AppModule);
 
@@ -730,6 +758,7 @@ let TravelAppService = class TravelAppService {
         this.googlePlus = googlePlus;
         this.firedata = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]();
         this.firestore = firebase__WEBPACK_IMPORTED_MODULE_2__["storage"]();
+        this.tripsarray = [];
         this.fireauth = firebase__WEBPACK_IMPORTED_MODULE_2__["auth"]();
     }
     // Creates a new user
@@ -758,11 +787,29 @@ let TravelAppService = class TravelAppService {
     // Uploads the user profile picture
     uploadProfilePic(useruid, photoString) {
         return new Promise((resolve, reject) => {
-            var storageRef = this.firestore.ref('/users').child('profilePhotos').child(useruid + ".jpg");
+            var storageRef = this.firestore.ref('/profilePhotos').child(useruid + ".jpg");
             storageRef.putString(photoString, firebase__WEBPACK_IMPORTED_MODULE_2__["storage"].StringFormat.DATA_URL).then((res) => {
                 storageRef.getDownloadURL().then((url) => {
                     this.firedata.ref('/users').child(useruid).update({
                         photoURL: url
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch((err) => {
+                        reject(err);
+                    });
+                });
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    }
+    uploadCoverPhoto(useruid, photoString) {
+        return new Promise((resolve, reject) => {
+            var storageRef = this.firestore.ref('/coverPhotos').child(useruid + ".jpg");
+            storageRef.putString(photoString, firebase__WEBPACK_IMPORTED_MODULE_2__["storage"].StringFormat.DATA_URL).then((res) => {
+                storageRef.getDownloadURL().then((url) => {
+                    this.firedata.ref('/users').child(useruid).update({
+                        coverPhoto: url
                     }).then((res) => {
                         resolve(res);
                     }).catch((err) => {
@@ -785,6 +832,23 @@ let TravelAppService = class TravelAppService {
                 }).catch((err) => {
                     reject(err);
                 });
+            });
+        });
+    }
+    // Fetch all the user's trips
+    fetchTrips() {
+        return new Promise((resolve, reject) => {
+            this.firedata.ref('/users').child(this.fireauth.currentUser.uid).child('trips').orderByChild("mjbmmn")
+                .once("value", snapshot => {
+                this.tripsarray = [];
+                let result = snapshot.val();
+                for (var key in result) {
+                    this.tripsarray.push(result[key]);
+                }
+            }).then(() => {
+                resolve(this.tripsarray);
+            }).catch((err) => {
+                reject(err);
             });
         });
     }
@@ -821,12 +885,11 @@ let TravelAppService = class TravelAppService {
         });
     }
     // Update the user details
-    updateUserDetails(firstname, lastname, phoneNumber, aboutMe) {
+    updateUserDetails(firstname, lastname, aboutMe) {
         return new Promise((resolve, reject) => {
             this.firedata.ref('/users').child(this.fireauth.currentUser.uid).update({
                 firstname: firstname,
                 lastname: lastname,
-                phoneNumber: phoneNumber,
                 aboutMe: aboutMe,
             }).then((res) => {
                 resolve(res);
@@ -913,7 +976,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/villifixinc/Documents/Upwork Projects/JhazTravelApp/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/villifixinc/Desktop/TravelApp/src/main.ts */"./src/main.ts");
 
 
 /***/ })

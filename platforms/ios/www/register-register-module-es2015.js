@@ -66,7 +66,7 @@ RegisterPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".topcover {\n  height: 35vh;\n}\n\n.secondlayer {\n  position: absolute;\n  text-align: center;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.testclass {\n  margin: 10px;\n}\n\n.tna {\n  font-size: 12px;\n  opacity: 0.6;\n  margin-bottom: 20px;\n}\n\n.each_item {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy92aWxsaWZpeGluYy9Eb2N1bWVudHMvVXB3b3JrIFByb2plY3RzL0poYXpUcmF2ZWxBcHAvc3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiLCJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLFlBQUE7QUNBSjs7QURPQTtFQUNJLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUNKSjs7QURRQTtFQUNJLFlBQUE7QUNMSjs7QURRQTtFQUNJLGVBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7QUNMSjs7QURVQTtFQUNJLG1CQUFBO0FDUEoiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wY292ZXJ7XG4gICAgLy8gYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XG4gICAgaGVpZ2h0OiAzNXZoO1xuICAgIC8vIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vYXNzZXRzL2ljb25zYW5kYmFja2dyb3VuZHMvYmFja2cucG5nJyk7XG4gICAgICAgIFxuICAgIC8vIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgLy8gYmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn1cblxuLnNlY29uZGxheWVye1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgdG9wOiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcblxufVxuXG4udGVzdGNsYXNze1xuICAgIG1hcmdpbjogMTBweFxufVxuXG4udG5he1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBvcGFjaXR5OiAwLjY7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcblxuICAgIC8vIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5lYWNoX2l0ZW17XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn0iLCIudG9wY292ZXIge1xuICBoZWlnaHQ6IDM1dmg7XG59XG5cbi5zZWNvbmRsYXllciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbi50ZXN0Y2xhc3Mge1xuICBtYXJnaW46IDEwcHg7XG59XG5cbi50bmEge1xuICBmb250LXNpemU6IDEycHg7XG4gIG9wYWNpdHk6IDAuNjtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cblxuLmVhY2hfaXRlbSB7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59Il19 */"
+module.exports = ".topcover {\n  height: 35vh;\n}\n\n.secondlayer {\n  position: absolute;\n  text-align: center;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.testclass {\n  margin: 10px;\n}\n\n.tna {\n  font-size: 12px;\n  opacity: 0.6;\n  margin-bottom: 20px;\n}\n\n.each_item {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy92aWxsaWZpeGluYy9EZXNrdG9wL1RyYXZlbEFwcC9zcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUksWUFBQTtBQ0FKOztBRE9BO0VBQ0ksa0JBQUE7RUFDQSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0pKOztBRFFBO0VBQ0ksWUFBQTtBQ0xKOztBRFFBO0VBQ0ksZUFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtBQ0xKOztBRFVBO0VBQ0ksbUJBQUE7QUNQSiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50b3Bjb3ZlcntcbiAgICAvLyBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgICBoZWlnaHQ6IDM1dmg7XG4gICAgLy8gYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi9hc3NldHMvaWNvbnNhbmRiYWNrZ3JvdW5kcy9iYWNrZy5wbmcnKTtcbiAgICAgICAgXG4gICAgLy8gYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgICAvLyBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufVxuXG4uc2Vjb25kbGF5ZXJ7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB0b3A6IDA7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuXG59XG5cbi50ZXN0Y2xhc3N7XG4gICAgbWFyZ2luOiAxMHB4XG59XG5cbi50bmF7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIG9wYWNpdHk6IDAuNjtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuXG4gICAgLy8gbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLmVhY2hfaXRlbXtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufSIsIi50b3Bjb3ZlciB7XG4gIGhlaWdodDogMzV2aDtcbn1cblxuLnNlY29uZGxheWVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLnRlc3RjbGFzcyB7XG4gIG1hcmdpbjogMTBweDtcbn1cblxuLnRuYSB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgb3BhY2l0eTogMC42O1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZWFjaF9pdGVtIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -107,7 +107,7 @@ let RegisterPage = class RegisterPage {
         this.loadingController.create({ message: "Please wait" }).then((res) => {
             res.present();
             this.travelAppService.facebookLogin().then(() => {
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/tabs');
                 res.dismiss();
             }).catch((err) => {
                 console.log(err);
@@ -119,7 +119,7 @@ let RegisterPage = class RegisterPage {
         this.loadingController.create({ message: "Please wait" }).then((res) => {
             res.present();
             this.travelAppService.googleLogin().then(() => {
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/tabs');
                 res.dismiss();
             }).catch((err) => {
                 console.log(err);
@@ -148,7 +148,7 @@ let RegisterPage = class RegisterPage {
                 res.present();
                 this.travelAppService.createnewuser(this.firstname, this.lastname, this.email, this.password).then(() => {
                     res.dismiss();
-                    this.router.navigateByUrl('/home');
+                    this.router.navigateByUrl('/tabs');
                 }).catch((err) => {
                     res.dismiss();
                     this.presentToast(err);

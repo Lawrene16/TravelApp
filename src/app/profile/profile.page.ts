@@ -21,15 +21,12 @@ export class ProfilePage{
   myimage = "";
   base64CoverPhoto;
   base64ProfilePhoto;
-
-
   useruid;
   showGallery = false;
   showTrips = true;
   showMaps = false;
-
-  galleryimages = [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},]
-  trips = [{},{},{},{}]
+  galleryimages = []
+  trips = [];
 
   constructor(public toastCtrl: ToastController,
     public camera: Camera,
@@ -38,6 +35,7 @@ export class ProfilePage{
     public events: Events,
     public loadingCtrl: LoadingController,
     public travelAppService: TravelAppService) { 
+
 
       // this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
       this.useruid = firebase.auth().currentUser.uid;
@@ -65,12 +63,24 @@ export class ProfilePage{
           }
 
           }).then(() =>{
+            setTimeout(() => {
             res.dismiss()
+            }, 1000);
 
           }).catch(() =>{
             res.dismiss()
 
           })
+      })
+
+
+      this.travelAppService.fetchTrips().then((trips:any) =>{
+        console.log(trips)
+        this.trips = trips;
+
+        this.trips.forEach(trip =>{
+          this.galleryimages.push(trip.photo);
+        })
       })
  
     }
@@ -208,8 +218,8 @@ export class ProfilePage{
         destinationType: this.camera.DestinationType.DATA_URL
       }).then(
         imageData => {
-          this.presentToast(imageData)
-          this.loadingCtrl.create({message: "Uploading profile photo"}).then((load) =>{
+          // this.presentToast(imageData)
+          this.loadingCtrl.create({message: "Uploading photo"}).then((load) =>{
             load.present()
             if(index == 0){
               this.base64CoverPhoto = "data:image/jpeg;base64," + imageData;
@@ -248,7 +258,7 @@ export class ProfilePage{
         destinationType: this.camera.DestinationType.DATA_URL
       }).then(
         imageData => {
-          this.loadingCtrl.create({message: "Uploading profile photo"}).then((load) =>{
+          this.loadingCtrl.create({message: "Uploading photo"}).then((load) =>{
             load.present()
             if(index == 0){
               this.base64CoverPhoto = "data:image/jpeg;base64," + imageData;

@@ -66,7 +66,7 @@ LoginPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".topcover {\n  height: 35vh;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n.testclass {\n  margin: 10px;\n}\n\n.secondlayer {\n  position: absolute;\n  text-align: center;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.tna {\n  font-size: 12px;\n  opacity: 0.6;\n  margin-bottom: 20px;\n}\n\n.each_item {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy92aWxsaWZpeGluYy9Eb2N1bWVudHMvVXB3b3JrIFByb2plY3RzL0poYXpUcmF2ZWxBcHAvc3JjL2FwcC9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzcmMvYXBwL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUdJLFlBQUE7RUFFQSw0QkFBQTtFQUNBLHNCQUFBO0FDRko7O0FES0E7RUFDSSxZQUFBO0FDRko7O0FESUE7RUFDSSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDREo7O0FES0E7RUFDSSxlQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FDRko7O0FET0E7RUFDSSxtQkFBQTtBQ0pKIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRvcGNvdmVye1xuICAgIC8vIGhlaWdodDogNTV2aDtcbiAgICAvLyBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uLy4uL2Fzc2V0cy9pY29uc2FuZGJhY2tncm91bmRzL2JhY2tnLnBuZycpO1xuICAgIGhlaWdodDogMzV2aDtcbiAgICAgICAgXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufVxuXG4udGVzdGNsYXNze1xuICAgIG1hcmdpbjogMTBweFxufVxuLnNlY29uZGxheWVye1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgdG9wOiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcblxufVxuXG4udG5he1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBvcGFjaXR5OiAwLjY7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcblxuICAgIC8vIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5lYWNoX2l0ZW17XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn0iLCIudG9wY292ZXIge1xuICBoZWlnaHQ6IDM1dmg7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59XG5cbi50ZXN0Y2xhc3Mge1xuICBtYXJnaW46IDEwcHg7XG59XG5cbi5zZWNvbmRsYXllciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbi50bmEge1xuICBmb250LXNpemU6IDEycHg7XG4gIG9wYWNpdHk6IDAuNjtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cblxuLmVhY2hfaXRlbSB7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59Il19 */"
+module.exports = ".topcover {\n  height: 35vh;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n.testclass {\n  margin: 10px;\n}\n\n.secondlayer {\n  position: absolute;\n  text-align: center;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.tna {\n  font-size: 12px;\n  opacity: 0.6;\n  margin-bottom: 20px;\n}\n\n.each_item {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy92aWxsaWZpeGluYy9EZXNrdG9wL1RyYXZlbEFwcC9zcmMvYXBwL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNyYy9hcHAvbG9naW4vbG9naW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0ksWUFBQTtFQUVBLDRCQUFBO0VBQ0Esc0JBQUE7QUNGSjs7QURLQTtFQUNJLFlBQUE7QUNGSjs7QURJQTtFQUNJLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxNQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUNESjs7QURLQTtFQUNJLGVBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7QUNGSjs7QURPQTtFQUNJLG1CQUFBO0FDSkoiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wY292ZXJ7XG4gICAgLy8gaGVpZ2h0OiA1NXZoO1xuICAgIC8vIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vYXNzZXRzL2ljb25zYW5kYmFja2dyb3VuZHMvYmFja2cucG5nJyk7XG4gICAgaGVpZ2h0OiAzNXZoO1xuICAgICAgICBcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59XG5cbi50ZXN0Y2xhc3N7XG4gICAgbWFyZ2luOiAxMHB4XG59XG4uc2Vjb25kbGF5ZXJ7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB0b3A6IDA7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuXG59XG5cbi50bmF7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIG9wYWNpdHk6IDAuNjtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuXG4gICAgLy8gbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLmVhY2hfaXRlbXtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufSIsIi50b3Bjb3ZlciB7XG4gIGhlaWdodDogMzV2aDtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn1cblxuLnRlc3RjbGFzcyB7XG4gIG1hcmdpbjogMTBweDtcbn1cblxuLnNlY29uZGxheWVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLnRuYSB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgb3BhY2l0eTogMC42O1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZWFjaF9pdGVtIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -96,10 +96,11 @@ let LoginPage = class LoginPage {
         this.travelAppService = travelAppService;
         this.toastCtrl = toastCtrl;
         this.loadingController = loadingController;
-        this.email = "";
-        this.password = "";
+        this.email = "a@gmail.com";
+        this.password = "aaaaaaaa";
     }
     ngOnInit() {
+        // this.login()
     }
     presentToast(message) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -115,7 +116,7 @@ let LoginPage = class LoginPage {
         this.loadingController.create({ message: "Please wait" }).then((res) => {
             res.present();
             this.travelAppService.facebookLogin().then(() => {
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/tabs');
                 res.dismiss();
             }).catch((err) => {
                 console.log(err);
@@ -127,7 +128,7 @@ let LoginPage = class LoginPage {
         this.loadingController.create({ message: "Please wait" }).then((res) => {
             res.present();
             this.travelAppService.googleLogin().then(() => {
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/tabs');
                 res.dismiss();
             }).catch((err) => {
                 console.log(err);
@@ -150,7 +151,7 @@ let LoginPage = class LoginPage {
                 res.present();
                 this.travelAppService.loginExistingUser(this.email, this.password).then(() => {
                     res.dismiss();
-                    this.router.navigateByUrl('/home');
+                    this.router.navigateByUrl('/tabs');
                 }).catch((err) => {
                     this.presentToast(err);
                     res.dismiss();

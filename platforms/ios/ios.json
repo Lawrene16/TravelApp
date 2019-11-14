@@ -147,8 +147,10 @@
           ],
           "NSLocationWhenInUseUsageDescription": [
             {
-              "xml": "<string>Use geocoder service</string>",
-              "count": 1
+              "xml": "<string>We use your location for full functionality of certain app features.</string>",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml"
             }
           ]
         }

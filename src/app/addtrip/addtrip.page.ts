@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AddtripPage {
 
+  bla = "";
   constructor() { }
 
+
+  validateButton(event){
+    console.log(event)
+  }
+
+  
 }

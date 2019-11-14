@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.login()
+    // this.login()
   }
 
   async presentToast(message) {
