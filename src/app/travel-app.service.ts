@@ -81,8 +81,7 @@ export class TravelAppService {
     })
   }
 
-  uploadTripPhoto(useruid, photoString){
-    var tripuid = this.firedata.ref('/users').push().key;
+  uploadTripPhoto(useruid, tripuid, photoString){
     return new Promise((resolve, reject) => {
       var storageRef = this.firestore.ref('/trips').child(useruid).child(tripuid+".jpg");
       storageRef.putString(photoString, firebase.storage.StringFormat.DATA_URL).then((res) =>{
@@ -134,9 +133,24 @@ export class TravelAppService {
     })
   }
 
-  addTrip(){
+  addTrip(useruid, aboutTrip, city, date, eventTitle, province, photoString){
     return new Promise((resolve, reject) => {
-
+      var tripuid = this.firedata.ref('/users').push().key;
+      this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
+        aboutTrip: aboutTrip,
+        city: city,
+        date: date,
+        eventTitle: eventTitle,
+        province: province
+      }).then((res) =>{
+        this.uploadTripPhoto(useruid, tripuid, photoString).then((res) =>{
+          resolve(res)
+        }).catch((err) =>{
+          reject(err)
+        })
+      }).catch((err) =>{
+        reject(err);
+      })
     })
   }
 

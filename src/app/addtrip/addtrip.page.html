@@ -1,81 +1,75 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Add Trip</ion-title>
+
+    <ion-buttons (click)="uploadTrip()" style="margin-right: 10px" slot="end">
+      <div style="font-size: 16px; font-weight: 300; ">Share</div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list>
+  <ion-list>
 
-      <!-- Each option -->
-      <div style="margin-top: 15px;">
-          <ion-label style="margin-left: 15px; opacity: 0.7;">Select Province</ion-label>
-          <ion-select style="border: 1px solid rgb(216,216,216); margin-left: 15px; margin-top: 10px; margin-right: 15px;padding: 15px;" placeholder="Select One">
-            <ion-select-option value="f">Female</ion-select-option>
-            <ion-select-option value="m">Male</ion-select-option>
-          </ion-select>
+    <!-- Each option -->
+    <div style="margin-top: 15px;">
+      <ion-label style="margin-left: 15px; opacity: 0.7;">Select Province</ion-label>
+      <ion-select
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; margin-top: 10px; margin-right: 15px;padding: 15px;"
+        placeholder="Select One">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </div>
+
+
+    <div style="margin-top: 25px;">
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Select City/Munucipality</ion-label>
+      <ion-select
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; margin-top: 10px; margin-right: 15px;padding: 15px;"
+        placeholder="Select One">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </div>
+
+
+    <div style="margin-top: 25px;">
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Select Date</ion-label>
+      <div
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; height: 45px; margin-top: 10px; margin-right: 15px;">
+        <ion-datetime [(ngModel)]="date" (ionChange)="validateButton($event)" display-format="MMMM, D, YYYY"
+          picker-format="DD MM YYYY"></ion-datetime>
       </div>
+    </div>
 
 
-      <div style="margin-top: 25px;">
-          <ion-label style="margin-left: 20px; opacity: 0.7;">Select City/Munucipality</ion-label>
-          <ion-select style="border: 1px solid rgb(216,216,216); margin-left: 15px; margin-top: 10px; margin-right: 15px;padding: 15px;" placeholder="Select One">
-            <ion-select-option value="f">Female</ion-select-option>
-            <ion-select-option value="m">Male</ion-select-option>
-          </ion-select>
-      </div>
+    <div style="margin-top: 25px;">
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Event Title</ion-label>
+      <ion-input [(ngModel)]="eventTitle"
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; height: 50px; padding-left: 10px; width: 93vw; margin-top: 10px; margin-right: 15px;">
+      </ion-input>
+    </div>
 
 
-      <div style="margin-top: 25px;">
-          <ion-label style="margin-left: 20px; opacity: 0.7;">Select Date</ion-label>
-          <div style="border: 1px solid rgb(216,216,216); margin-left: 15px; height: 45px; margin-top: 10px; margin-right: 15px;">
-              <ion-datetime [(ngModel)]="bla" (ionChange)="validateButton($event)" display-format="MMMM, D, YYYY" 
-              picker-format="DD MM YYYY"></ion-datetime>
-          </div>
-      </div>
-
-
-      <div style="margin-top: 25px;">
-          <ion-label style="margin-left: 20px; opacity: 0.7;">Event Title</ion-label>
-          <ion-input style="border: 1px solid rgb(216,216,216); margin-left: 15px; height: 50px; padding-left: 10px; width: 93vw; margin-top: 10px; margin-right: 15px;">
-          </ion-input>
-      </div>
-
-
-      <div style="margin-top: 25px;">
-          <ion-label style="margin-left: 20px; opacity: 0.7;">Tell us more about this trip</ion-label>
-          <ion-textarea style="border: 1px solid rgb(216,216,216); margin-left: 15px; padding-left: 10px; height: 150px; width: 93vw; margin-top: 10px; margin-right: 15px;">
-          </ion-textarea>
-      </div>
+    <div style="margin-top: 25px;">
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Tell us more about this trip</ion-label>
+      <ion-textarea [(ngModel)]="aboutTrip"
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; padding-left: 10px; height: 150px; width: 93vw; margin-top: 10px; margin-right: 15px;">
+      </ion-textarea>
+    </div>
 
 
 
-      <div style="margin-top: 25px;" (click)="AccessGallery()">
-          <ion-label style="margin-left: 20px; opacity: 0.7;">Upload your photo</ion-label>
+    <div style="margin-top: 25px;" (click)="AccessGallery()">
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Upload your photo</ion-label>
 
-          <img [src]="base64TripPhoto" style="border: 1px solid rgb(216,216,216); background-color: rgb(232,239,241); margin-left: 15px; height: 200px; width: 93vw; margin-top: 10px; margin-right: 15px;">
-           
-          
-      </div>
+      <img [src]="base64TripPhoto"
+        style="border: 1px solid rgb(216,216,216); background-color: rgb(232,239,241); margin-left: 15px; height: 200px; width: 93vw; margin-top: 10px; margin-right: 15px;">
 
 
-
-
-      <!-- <div style="margin-top: 25px;" (click)="AccessGallery()">
-          <ion-label style="margin-left: 20px; opacity: 0.7;">Upload your photo</ion-label>
-
-          <div style="border: 1px solid rgb(216,216,216); background-color: rgb(232,239,241); margin-left: 15px; height: 200px; width: 93vw; margin-top: 10px; margin-right: 15px;">
-            <p style="margin: 0px; padding-top: 40px;" align="center">
-              <ion-icon style="font-size: 65px;" name="images" color="medium"></ion-icon>
-            </p>
-            <p style="margin: 10px;" align="center">
-                Browse Gallery<br>
-                <span style="opacity: 0.7;">This photo will be tagged to the location</span>
-            </p>
-          </div>
-      </div> -->
-
-      </ion-list>
+    </div>
+  </ion-list>
 
 
 

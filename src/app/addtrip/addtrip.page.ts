@@ -14,6 +14,13 @@ export class AddtripPage {
   useruid;
   bla = "";
   base64TripPhoto = "../../assets/browsephoto.png";
+  aboutTrip = "";
+  city = "Metro Manila";
+  date = "";
+  eventTitle = "";
+  province = "Mandaluyong";
+
+
 
   constructor( public camera: Camera,
     public actionSheetCtrl: ActionSheetController,
@@ -30,6 +37,30 @@ export class AddtripPage {
     console.log(event)
   }
 
+  uploadTrip(){
+    this.loadingCtrl.create({message: "Uploading your trip"}).then((res) =>{
+      res.present();
+      this.travelAppService.addTrip(
+        this.useruid, this.aboutTrip, this.city, this.date, this.eventTitle,
+        this.province, this.base64TripPhoto 
+      ).then(() =>{
+        res.dismiss();
+
+        this.aboutTrip = "";
+        this.city = "";
+        this.date = "";
+        this.eventTitle = "";
+        this.base64TripPhoto = "";
+        this.province = ""
+
+        this.presentToast("Trip uploaded successfully");
+      }).catch((err) =>{
+                res.dismiss()
+
+        console.log(err)
+      })
+    })
+  }
 
   // async presentActionSheet() {
 
@@ -110,17 +141,17 @@ export class AddtripPage {
         destinationType: this.camera.DestinationType.DATA_URL
       }).then(
         imageData => {
-          this.loadingCtrl.create({message: "Uploading photo"}).then((load) =>{
-            load.present()
+          // this.loadingCtrl.create({message: "Uploading photo"}).then((load) =>{
+          //   load.present()
               this.base64TripPhoto = "data:image/jpeg;base64," + imageData;
-              this.travelAppService.uploadTripPhoto(this.useruid, this.base64TripPhoto).then(() =>{
-                this.presentToast("Trip Photo Uploaded Successfully")
-                load.dismiss()
-              }).catch((err) =>{
-                this.presentToast("Trip Photo Not Uploaded")
-                load.dismiss()
-              });
-          })  
+              // this.travelAppService.uploadTripPhoto(this.useruid, this.base64TripPhoto).then(() =>{
+              //   this.presentToast("Trip Photo Uploaded Successfully")
+              //   load.dismiss()
+              // }).catch((err) =>{
+              //   this.presentToast("Trip Photo Not Uploaded")
+              //   load.dismiss()
+              // });
+          // })  
         },
         err => {
           console.log(err);
