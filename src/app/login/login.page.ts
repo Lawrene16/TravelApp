@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
     this.loadingController.create({message:"Please wait"}).then((res) =>{
       res.present();
       this.travelAppService.facebookLogin().then(() =>{
+        this.presentToast("jsdfkjshdkfjhsk")
         this.router.navigateByUrl('/tabs');
         res.dismiss()
       }).catch((err) =>{

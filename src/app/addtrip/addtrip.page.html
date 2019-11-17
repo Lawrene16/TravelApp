@@ -3,7 +3,7 @@
     <ion-title>Add Trip</ion-title>
 
     <ion-buttons (click)="uploadTrip()" style="margin-right: 10px" slot="end">
-      <div style="font-size: 16px; font-weight: 300; ">Share</div>
+      <div style="font-size: 16px; font-weight: 300; ">Save</div>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -35,13 +35,23 @@
 
 
     <div style="margin-top: 25px;">
-      <ion-label style="margin-left: 20px; opacity: 0.7;">Select Date</ion-label>
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Select Date(from)</ion-label>
       <div
         style="border: 1px solid rgb(216,216,216); margin-left: 15px; height: 45px; margin-top: 10px; margin-right: 15px;">
-        <ion-datetime [(ngModel)]="date" (ionChange)="validateButton($event)" display-format="MMMM, D, YYYY"
+        <ion-datetime [(ngModel)]="fromDate" (ionChange)="validateButton($event)" display-format="MMMM, D, YYYY"
           picker-format="DD MM YYYY"></ion-datetime>
       </div>
     </div>
+
+    <div style="margin-top: 25px;">
+      <ion-label style="margin-left: 20px; opacity: 0.7;">Select Date(to)</ion-label>
+      <div
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; height: 45px; margin-top: 10px; margin-right: 15px;">
+        <ion-datetime [(ngModel)]="toDate" (ionChange)="validateButton($event)" display-format="MMMM, D, YYYY"
+          picker-format="DD MM YYYY"></ion-datetime>
+      </div>
+    </div>
+
 
 
     <div style="margin-top: 25px;">

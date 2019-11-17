@@ -16,7 +16,8 @@ export class AddtripPage {
   base64TripPhoto = "../../assets/browsephoto.png";
   aboutTrip = "";
   city = "Metro Manila";
-  date = "";
+  fromDate = "";
+  toDate = "";
   eventTitle = "";
   province = "Mandaluyong";
 
@@ -28,27 +29,46 @@ export class AddtripPage {
     public loadingCtrl: LoadingController,
     public travelAppService: TravelAppService) { 
 
-      this.useruid = firebase.auth().currentUser.uid;
+      // this.useruid = firebase.auth().currentUser.uid;
+      this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
 
     }
 
 
   validateButton(event){
-    console.log(event)
+    // console.log(this.fromDate)
+    // console.log(this.toDate)
+
+    console.log(this.parseDate(this.fromDate))
+    // this.parseDate(this.toDate)
+
+  }
+
+  parseDate(date:any){
+    var year = date.slice(0, -25);
+    var month = date.slice(5, -22);
+    var day = date.slice(8, -19);
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    var newdate = months[month - 1] + ', ' + day + ', ' + year;
+
+    return newdate;
+    // console.log(newdate)
+    // console.log(date)
   }
 
   uploadTrip(){
     this.loadingCtrl.create({message: "Uploading your trip"}).then((res) =>{
       res.present();
       this.travelAppService.addTrip(
-        this.useruid, this.aboutTrip, this.city, this.date, this.eventTitle,
+        this.useruid, this.aboutTrip, this.city, this.parseDate(this.fromDate), this.parseDate(this.toDate), this.eventTitle,
         this.province, this.base64TripPhoto 
       ).then(() =>{
         res.dismiss();
-
         this.aboutTrip = "";
         this.city = "";
-        this.date = "";
+        this.fromDate = "";
+        this.toDate = "";
         this.eventTitle = "";
         this.base64TripPhoto = "";
         this.province = ""

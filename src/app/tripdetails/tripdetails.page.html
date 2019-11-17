@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons style="margin-left: 5px" slot="start">
+          <ion-back-button color="primary" defaultHref="/profile"></ion-back-button>
+        </ion-buttons>
+
+    <ion-title>
+      {{data.eventTitle}}
+      <!-- <ion-icon name="create"></ion-icon> -->
+    </ion-title>
+
+    <ion-buttons style="margin-left: 5px" slot="end">
+        <ion-button (click)="shareTrip()" color="primary" >
+          <ion-icon color="primary" name="share" ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="height: 300px;">
+    <img height="100%" src="{{data.photo}}" >
+  </div>
+
+<ion-item>
+    <!-- <img height="20px" src="../../assets/id-card (1).svg"> -->
+    <ion-label style="margin-left: 16px">
+        {{data.city}}, {{data.province}}
+
+        <!-- <span style="font-size: 18px; font-weight: 600">ID - </span> 33  -->
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+      <!-- <img height="20px" src="../../assets/edit.svg"> -->
+      <ion-label style="margin-left: 16px">
+        {{data.fromDate}} - {{data.toDate}}
+          <!-- <span style="font-size: 18px; font-weight: 600">Created At - </span> 33  -->
+      </ion-label>
+    </ion-item>
+
+  <ion-item>
+      <!-- <img height="20px" src="../../assets/refresh.svg"> -->
+      <ion-label style="margin-left: 16px">
+          {{data.aboutTrip}}
+
+          <!-- <span style="font-size: 18px; font-weight: 600">Updated At - </span> 33  -->
+      </ion-label>
+    </ion-item>
+
+
+
+
+  <br>
+
+  <br>
+<!-- 
+  <p align="center"><img (click)="presentDelete()" height="40px" src="../../assets/garbage.svg"></p>
+ -->
+
+</ion-content>

@@ -3,6 +3,8 @@ import { ToastController, LoadingController, ActionSheetController, AlertControl
 import { TravelAppService } from '../travel-app.service';
 import * as firebase from "firebase";
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -33,12 +35,14 @@ export class ProfilePage{
     public actionSheetCtrl: ActionSheetController,
     public alertController: AlertController,
     public events: Events,
+    public router: Router,
+    public geolocation: Geolocation,
     public loadingCtrl: LoadingController,
     public travelAppService: TravelAppService) { 
 
 
-      // this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
-      this.useruid = firebase.auth().currentUser.uid;
+      this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
+      // this.useruid = firebase.auth().currentUser.uid;
 
       this.loadingCtrl.create({message: "Fetching your profile details"}).then((res) =>{
         res.present()
@@ -73,7 +77,6 @@ export class ProfilePage{
           })
       })
 
-
       this.travelAppService.fetchTrips().then((trips:any) =>{
         console.log(trips)
         this.trips = trips;
@@ -82,6 +85,13 @@ export class ProfilePage{
           this.galleryimages.push(trip.photo);
         })
       })
+
+      // this.geolocation.getCurrentPosition().then((resp) =>{
+      //   // console.log(resp.coords);
+      //   this.presentToast(resp.coords.latitude)
+      // }).catch((err) =>{
+      //   console.log(err)
+      // })
  
     }
 
@@ -134,6 +144,18 @@ export class ProfilePage{
     alert.present()
     }
 
+    showTripDetails(i){
+      let navigationExtras: NavigationExtras = {
+        state: {
+          trip: this.trips[i]
+        }
+      };
+  
+      console.log(i)
+  
+      this.router.navigate(['tripdetails'], navigationExtras);
+    }
+
   segmentChanged(event){
     if(event.detail.value == "showTrips"){
       this.showTrips = true;
@@ -149,6 +171,28 @@ export class ProfilePage{
       this.showTrips = false;
     }
   }
+
+
+  doRefresh(event){
+
+    // setTimeout(() => {
+    //   console.log('Async operation has ended');
+    // }, 3000);
+
+    this.travelAppService.fetchTrips().then((trips:any) =>{
+      console.log(trips)
+      this.trips = trips;
+
+      this.trips.forEach(trip =>{
+        this.galleryimages.push(trip.photo);
+
+        event.target.complete();
+
+      })
+    })
+  }
+
+
 
   // ionViewDidLoad(){
   //   console.log("yayayay")

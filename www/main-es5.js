@@ -839,6 +839,25 @@ var TravelAppService = /** @class */ (function () {
             });
         });
     };
+    TravelAppService.prototype.uploadTripPhoto = function (useruid, tripuid, photoString) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var storageRef = _this.firestore.ref('/trips').child(useruid).child(tripuid + ".jpg");
+            storageRef.putString(photoString, firebase__WEBPACK_IMPORTED_MODULE_2__["storage"].StringFormat.DATA_URL).then(function (res) {
+                storageRef.getDownloadURL().then(function (url) {
+                    _this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
+                        photo: url
+                    }).then(function (res) {
+                        resolve(res);
+                    }).catch(function (err) {
+                        reject(err);
+                    });
+                });
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+    };
     // Login with facebook
     TravelAppService.prototype.facebookLogin = function () {
         var _this = this;
@@ -867,6 +886,27 @@ var TravelAppService = /** @class */ (function () {
                 }
             }).then(function () {
                 resolve(_this.tripsarray);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+    };
+    TravelAppService.prototype.addTrip = function (useruid, aboutTrip, city, date, eventTitle, province, photoString) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var tripuid = _this.firedata.ref('/users').push().key;
+            _this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
+                aboutTrip: aboutTrip,
+                city: city,
+                date: date,
+                eventTitle: eventTitle,
+                province: province
+            }).then(function (res) {
+                _this.uploadTripPhoto(useruid, tripuid, photoString).then(function (res) {
+                    resolve(res);
+                }).catch(function (err) {
+                    reject(err);
+                });
             }).catch(function (err) {
                 reject(err);
             });

@@ -14,6 +14,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFireModule } from "angularfire2";
 import * as firebase from "firebase";
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -46,6 +47,7 @@ firebase.initializeApp(firebaseconfig);
     Camera,
     Geolocation,
     // Crop,
+    SocialSharing,
     Facebook,
     // ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

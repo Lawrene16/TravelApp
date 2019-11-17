@@ -50,6 +50,10 @@
 		F0E9191A050C4A5DBBD03485 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F537119BB144B17A4B2BE34 /* FBSDKShareKit.framework */; };
 		51AFE4F138904D23941ADE54 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6ACB22E4794EAD8AC20CC5 /* CDVLocation.m */; };
 		52A1694BA67A4B25AB69407D /* NativeGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2B0445491D464E809CA759 /* NativeGeocoder.swift */; };
+		8C07797F6A6E4954B5AFD7E3 /* NSString+SSURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AD632B7FEFD246D6841DAA93 /* NSString+SSURLEncoding.m */; };
+		585773DC556F4A54BEE95D98 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 286230DBB3714698ABA08337 /* SocialSharing.m */; };
+		31269DE7F07F44E89DFF22E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AC6361BC74FD9A526D9C6 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		915D4DA6EECD46D2991CDDB9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845E4F48380847049F62B5AF /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +155,12 @@
 		901C6DEDB4854DEBB3E8C439 /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		3D2B0445491D464E809CA759 /* NativeGeocoder.swift */ = {isa = PBXFileReference; name = "NativeGeocoder.swift"; path = "cordova-plugin-nativegeocoder/NativeGeocoder.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		F128486BFCDB4B5D86DBF104 /* NativeGeocoder-Bridging-Header.h */ = {isa = PBXFileReference; name = "NativeGeocoder-Bridging-Header.h"; path = "cordova-plugin-nativegeocoder/NativeGeocoder-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AD632B7FEFD246D6841DAA93 /* NSString+SSURLEncoding.m */ = {isa = PBXFileReference; name = "NSString+SSURLEncoding.m"; path = "cordova-plugin-x-socialsharing/NSString+SSURLEncoding.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		286230DBB3714698ABA08337 /* SocialSharing.m */ = {isa = PBXFileReference; name = "SocialSharing.m"; path = "cordova-plugin-x-socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D0477EC822D34E77BF6FA191 /* NSString+SSURLEncoding.h */ = {isa = PBXFileReference; name = "NSString+SSURLEncoding.h"; path = "cordova-plugin-x-socialsharing/NSString+SSURLEncoding.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		9DA94DDD61194F7CA49573AB /* SocialSharing.h */ = {isa = PBXFileReference; name = "SocialSharing.h"; path = "cordova-plugin-x-socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		613AC6361BC74FD9A526D9C6 /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		845E4F48380847049F62B5AF /* MessageUI.framework */ = {isa = PBXFileReference; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +189,8 @@
 				F7E6DC22FD0B446CAE80D448 /* FBSDKCoreKit.framework in Frameworks */,
 				6CEB03E26F2F4E12B47E9406 /* FBSDKLoginKit.framework in Frameworks */,
 				F0E9191A050C4A5DBBD03485 /* FBSDKShareKit.framework in Frameworks */,
+				31269DE7F07F44E89DFF22E7 /* Social.framework in Frameworks */,
+				915D4DA6EECD46D2991CDDB9 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +282,8 @@
 				B0D3FFDD431F4BDC8848DB3D /* FBSDKCoreKit.framework */,
 				015BA61854E84E7282DBCF23 /* FBSDKLoginKit.framework */,
 				0F537119BB144B17A4B2BE34 /* FBSDKShareKit.framework */,
+				613AC6361BC74FD9A526D9C6 /* Social.framework */,
+				845E4F48380847049F62B5AF /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,6 +343,10 @@
 				901C6DEDB4854DEBB3E8C439 /* CDVLocation.h */,
 				3D2B0445491D464E809CA759 /* NativeGeocoder.swift */,
 				F128486BFCDB4B5D86DBF104 /* NativeGeocoder-Bridging-Header.h */,
+				AD632B7FEFD246D6841DAA93 /* NSString+SSURLEncoding.m */,
+				286230DBB3714698ABA08337 /* SocialSharing.m */,
+				D0477EC822D34E77BF6FA191 /* NSString+SSURLEncoding.h */,
+				9DA94DDD61194F7CA49573AB /* SocialSharing.h */,
 			);
 			name = Plugins;
 			path = TravelApp/Plugins;
@@ -476,6 +494,8 @@
 				6FF5AD9E215F42FB9B70B18B /* FacebookConnectPlugin.m in Sources */,
 				51AFE4F138904D23941ADE54 /* CDVLocation.m in Sources */,
 				52A1694BA67A4B25AB69407D /* NativeGeocoder.swift in Sources */,
+				8C07797F6A6E4954B5AFD7E3 /* NSString+SSURLEncoding.m in Sources */,
+				585773DC556F4A54BEE95D98 /* SocialSharing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

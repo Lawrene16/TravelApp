@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'discover', loadChildren: './discover/discover.module#DiscoverPageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'addtrip', loadChildren: './addtrip/addtrip.module#AddtripPageModule' },
-  { path: 'more', loadChildren: './more/more.module#MorePageModule' }
+  { path: 'more', loadChildren: './more/more.module#MorePageModule' },
+  { path: 'tripdetails', loadChildren: './tripdetails/tripdetails.module#TripdetailsPageModule' }
 ];
 
 @NgModule({

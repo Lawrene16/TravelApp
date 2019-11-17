@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.travelapp.mvp" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.travelapp.mvp" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TravelApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -122,4 +122,9 @@
     </plugin>
     <engine name="ios" spec="5.0.1" />
     <engine name="android" spec="7.1.4" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.6.2">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
+        <variable name="PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
+    </plugin>
 </widget>

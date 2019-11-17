@@ -109,6 +109,20 @@ module.exports = [
     "clobbers": [
       "nativegeocoder"
     ]
+  },
+  {
+    "id": "es6-promise-plugin.Promise",
+    "file": "plugins/es6-promise-plugin/www/promise.js",
+    "pluginId": "es6-promise-plugin",
+    "runs": true
+  },
+  {
+    "id": "cordova-plugin-x-socialsharing.SocialSharing",
+    "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
+    "pluginId": "cordova-plugin-x-socialsharing",
+    "clobbers": [
+      "window.plugins.socialsharing"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -124,7 +138,9 @@ module.exports.metadata =
   "cordova-plugin-camera": "4.1.0",
   "cordova-plugin-facebook4": "5.0.0",
   "cordova-plugin-geolocation": "4.0.2",
-  "cordova-plugin-nativegeocoder": "3.2.2"
+  "cordova-plugin-nativegeocoder": "3.2.2",
+  "es6-promise-plugin": "4.2.2",
+  "cordova-plugin-x-socialsharing": "5.6.2"
 };
 // BOTTOM OF METADATA
 });

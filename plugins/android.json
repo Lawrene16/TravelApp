@@ -46,7 +46,15 @@
     },
     "cordova-plugin-nativegeocoder": {
       "PACKAGE_NAME": "com.travelapp.mvp"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
+      "PACKAGE_NAME": "com.travelapp.mvp"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.travelapp.mvp"
+    }
+  }
 }

@@ -133,13 +133,14 @@ export class TravelAppService {
     })
   }
 
-  addTrip(useruid, aboutTrip, city, date, eventTitle, province, photoString){
+  addTrip(useruid, aboutTrip, city, fromDate, toDate, eventTitle, province, photoString){
     return new Promise((resolve, reject) => {
       var tripuid = this.firedata.ref('/users').push().key;
       this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
         aboutTrip: aboutTrip,
         city: city,
-        date: date,
+        fromDate: fromDate,
+        toDate: toDate,
         eventTitle: eventTitle,
         province: province
       }).then((res) =>{

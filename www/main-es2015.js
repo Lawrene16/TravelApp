@@ -821,6 +821,24 @@ let TravelAppService = class TravelAppService {
             });
         });
     }
+    uploadTripPhoto(useruid, tripuid, photoString) {
+        return new Promise((resolve, reject) => {
+            var storageRef = this.firestore.ref('/trips').child(useruid).child(tripuid + ".jpg");
+            storageRef.putString(photoString, firebase__WEBPACK_IMPORTED_MODULE_2__["storage"].StringFormat.DATA_URL).then((res) => {
+                storageRef.getDownloadURL().then((url) => {
+                    this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
+                        photo: url
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch((err) => {
+                        reject(err);
+                    });
+                });
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    }
     // Login with facebook
     facebookLogin() {
         return new Promise((resolve, reject) => {
@@ -847,6 +865,26 @@ let TravelAppService = class TravelAppService {
                 }
             }).then(() => {
                 resolve(this.tripsarray);
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    }
+    addTrip(useruid, aboutTrip, city, date, eventTitle, province, photoString) {
+        return new Promise((resolve, reject) => {
+            var tripuid = this.firedata.ref('/users').push().key;
+            this.firedata.ref('/users').child(useruid).child('trips').child(tripuid).update({
+                aboutTrip: aboutTrip,
+                city: city,
+                date: date,
+                eventTitle: eventTitle,
+                province: province
+            }).then((res) => {
+                this.uploadTripPhoto(useruid, tripuid, photoString).then((res) => {
+                    resolve(res);
+                }).catch((err) => {
+                    reject(err);
+                });
             }).catch((err) => {
                 reject(err);
             });
