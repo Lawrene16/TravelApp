@@ -1,28 +1,28 @@
 {
-  "_from": "cordova-plugin-facebook4@5.0.0",
-  "_id": "cordova-plugin-facebook4@5.0.0",
+  "_from": "cordova-plugin-facebook4",
+  "_id": "cordova-plugin-facebook4@6.2.0",
   "_inBundle": false,
-  "_integrity": "sha512-g8Ov9JVX3zFdaGNexLOad1PNAU13U5bMMWWWyuaQqm2a8jUECSG7G+qU1ZpzlwA5o5O4YdzEdJQ2KDkz0gkdLw==",
+  "_integrity": "sha512-PDqm4Qzi126RwD23aIgefuHui2UQic0Y0ApDcC3OLy5D6QMuFlirgzwqycJeB35B4I8cj/7EdKoyDLj1AiTJ2Q==",
   "_location": "/cordova-plugin-facebook4",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "tag",
     "registry": true,
-    "raw": "cordova-plugin-facebook4@5.0.0",
+    "raw": "cordova-plugin-facebook4",
     "name": "cordova-plugin-facebook4",
     "escapedName": "cordova-plugin-facebook4",
-    "rawSpec": "5.0.0",
+    "rawSpec": "",
     "saveSpec": null,
-    "fetchSpec": "5.0.0"
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-facebook4/-/cordova-plugin-facebook4-5.0.0.tgz",
-  "_shasum": "91cfbe935b91ff1f63fbd8ca7d3a30aea981a713",
-  "_spec": "cordova-plugin-facebook4@5.0.0",
-  "_where": "/Users/villifixinc/Documents/Upwork Projects/JhazTravelApp",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-facebook4/-/cordova-plugin-facebook4-6.2.0.tgz",
+  "_shasum": "0d2427556343a71cfdd96d4bd25e095371c6bb46",
+  "_spec": "cordova-plugin-facebook4",
+  "_where": "/Users/villifixinc/Desktop/TravelApp",
   "bugs": {
     "url": "https://github.com/jeduan/cordova-plugin-facebook4/issues"
   },
@@ -55,5 +55,5 @@
     "type": "git",
     "url": "git+https://github.com/jeduan/cordova-plugin-facebook4.git"
   },
-  "version": "5.0.0"
+  "version": "6.2.0"
 }

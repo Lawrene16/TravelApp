@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { TravelAppService } from '../travel-app.service';
+import * as firebase from 'firebase';
 
 
 @Component({
@@ -36,29 +37,77 @@ export class LoginPage implements OnInit {
 
   fblogin(){
     this.loadingController.create({message:"Please wait"}).then((res) =>{
-      res.present();
-      this.travelAppService.facebookLogin().then(() =>{
-        this.presentToast("jsdfkjshdkfjhsk")
-        this.router.navigateByUrl('/tabs');
-        res.dismiss()
+      res.present()
+      this.travelAppService.facebookLogin().then((user:any) =>{
+        console.log(user);
+        this.checkIfUserExits(user.uid).then((isthereuser) =>{
+            switch (isthereuser) {
+              case true:
+                this.router.navigateByUrl('/tabs');
+                res.dismiss();
+                break;
+              case false:
+                  this.travelAppService.generateInitialUserDetails(user.displayName, user.email, user.photoURL).then(() =>{
+                    this.router.navigateByUrl('/tabs');
+                    res.dismiss();
+                  }).catch((err) =>{
+                    this.presentToast(err)
+                    res.dismiss()
+                  })
+                break;
+            }
+          }).catch((err) => {
+            this.presentToast(err);
+            console.log(err);
+          });
       }).catch((err) =>{
-        console.log(err)
+        this.presentToast(err)
         res.dismiss()
       })
-    })
+    }) 
   }
 
   googleLogin(){
     this.loadingController.create({message:"Please wait"}).then((res) =>{
-      res.present();
-      this.travelAppService.googleLogin().then(() =>{
-        this.router.navigateByUrl('/tabs');
-        res.dismiss()
+      res.present()
+      this.travelAppService.googleLogin().then((user:any) =>{
+        this.checkIfUserExits(user.uid).then((isthereuser) =>{
+            switch (isthereuser) {
+              case true:
+                this.router.navigateByUrl('/tabs');
+                res.dismiss();
+                break;
+              case false:
+                  this.travelAppService.generateInitialUserDetails(user.displayName, user.email, user.photoURL).then(() =>{
+                    this.router.navigateByUrl('/tabs');
+                    res.dismiss();
+                  }).catch((err) =>{
+                    this.presentToast(err)
+                    res.dismiss()
+                  })
+                break;
+            }
+          }).catch((err) => {
+            this.presentToast(err);
+            console.log(err);
+          });
       }).catch((err) =>{
-        console.log(err)
-        res.dismiss();
+        this.presentToast(err)
+        res.dismiss()
       })
-    })
+    })  
+  }
+
+
+  checkIfUserExits(userId) {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('/users').child(userId).once('value', (snapshot) => {
+        var exists = (snapshot.val() !== null);
+        resolve(exists)
+      }).catch((err) => {
+        reject(err);
+      });
+    });
   }
 
   login() {

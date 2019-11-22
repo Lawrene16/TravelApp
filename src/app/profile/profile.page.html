@@ -52,7 +52,7 @@
   <br>
 
 
-  <p align="center" style="margin: 0px; font-size: 22px; opacity: 0.6; font-weight: 600;"><span>{{firstname}} {{lastname}}</span><ion-icon (click)="editname()" style="margin-top: 5px; margin-left: 5px;" name="create" color="dark"></ion-icon></p>
+  <p align="center" style="margin: 0px; font-size: 22px; opacity: 0.6; font-weight: 600;"><span>{{name}}</span><ion-icon (click)="editname()" style="margin-top: 5px; margin-left: 5px;" name="create" color="dark"></ion-icon></p>
 
   <div style="width: 100%; margin-top: 7px; text-align: center; height: 27px;">
     <div style="display: inline-block; margin: 0 auto;
@@ -113,6 +113,9 @@
 
   <!-- Trips Div -->
   <div  *ngIf="showTrips">
+
+    <p *ngIf="showTripsText" style="margin: 20px; font-size: 16px; opacity: 0.7;" align="center">You havent added any trips yet. Click on add trips to add one</p>
+
     <ion-card (click)="showTripDetails(i)" *ngFor="let trip of trips;  let i = index;" padding style="height: 350px;">
       <img height="200px" src="{{trip.photo}}">
       <p style="font-weight: 600; margin: 0px; padding-top: 20px; font-size: 16px;">{{trip.eventTitle}}</p>
@@ -129,7 +132,7 @@
         <div style="width: 25px; float: left;">
           <img height="18px" style="width: 20px;" src="../../assets/icon/appointment-2.png">
         </div>
-        <div style="float: left; padding-left: 5px; font-size: 15px; margin-top: 2px;">
+        <div style="float: left; padding-left: 5px; font-size: 14px; margin-top: 2px;">
           {{trip.fromDate}} - {{trip.toDate}}
         </div>
       </div>
@@ -143,6 +146,9 @@
 
   <!-- Gallery Div -->
   <div *ngIf="showGallery" style="width: 100%;">
+
+      <p *ngIf="showGalleryText" style="margin: 20px; font-size: 16px; opacity: 0.7;" align="center">You havent added any trips yet. Click on add trips to add one</p>
+
     <div *ngFor="let galleryimage of galleryimages" class="eachgalleryimage">
       <img style="width: 100%; height: 100%;" src="{{galleryimage}}">
     </div>

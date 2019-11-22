@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Add Trip</ion-title>
+    <ion-title>Post Trip</ion-title>
 
     <ion-buttons (click)="uploadTrip()" style="margin-right: 10px" slot="end">
       <div style="font-size: 16px; font-weight: 300; ">Save</div>
@@ -13,12 +13,23 @@
 
     <!-- Each option -->
     <div style="margin-top: 15px;">
-      <ion-label style="margin-left: 15px; opacity: 0.7;">Select Province</ion-label>
-      <ion-select
+      <ion-label style="margin-left: 15px; opacity: 0.7;">Select Country</ion-label>
+      <ion-select #C (ionChange)="onChange(C.value)"
         style="border: 1px solid rgb(216,216,216); margin-left: 15px; margin-top: 10px; margin-right: 15px;padding: 15px;"
         placeholder="Select One">
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="m">Male</ion-select-option>
+        <ion-select-option [value]="country.country_code" *ngFor="let country of countries;">{{country.country_name}}
+        </ion-select-option>
+      </ion-select>
+    </div>
+
+    <!-- Each option -->
+    <!-- Each option -->
+    <div style="margin-top: 15px;">
+      <ion-label style="margin-left: 15px; opacity: 0.7;">Select Province</ion-label>
+      <ion-select #D (ionChange)="onChange2(D.value)"
+        style="border: 1px solid rgb(216,216,216); margin-left: 15px; margin-top: 10px; margin-right: 15px;padding: 15px;"
+        placeholder="Select One">
+        <ion-select-option [value]="state.id" *ngFor="let state of states;">{{state}}</ion-select-option>
       </ion-select>
     </div>
 

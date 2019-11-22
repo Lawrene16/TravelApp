@@ -15,6 +15,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFireModule } from "angularfire2";
 import * as firebase from "firebase";
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -37,6 +38,7 @@ firebase.initializeApp(firebaseconfig);
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseconfig),
     AppRoutingModule
   ],

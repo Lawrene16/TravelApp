@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { TravelAppService } from '../travel-app.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-register',
@@ -11,8 +12,7 @@ import { TravelAppService } from '../travel-app.service';
 export class RegisterPage implements OnInit {
 
 
-  firstname = "";
-  lastname = "";
+  name = "";
   email = "";
   password = "";
 
@@ -29,36 +29,80 @@ export class RegisterPage implements OnInit {
 
   fblogin(){
     this.loadingController.create({message:"Please wait"}).then((res) =>{
-      res.present();
-      this.travelAppService.facebookLogin().then(() =>{
-        this.router.navigateByUrl('/tabs');
-        res.dismiss()
+      res.present()
+      this.travelAppService.facebookLogin().then((user:any) =>{
+        this.checkIfUserExits(user.uid).then((isthereuser) =>{
+            switch (isthereuser) {
+              case true:
+                this.router.navigateByUrl('/tabs');
+                res.dismiss();
+                break;
+              case false:
+                  this.travelAppService.generateInitialUserDetails(user.displayName, user.email, user.photoURL).then(() =>{
+                    this.router.navigateByUrl('/tabs');
+                    res.dismiss();
+                  }).catch((err) =>{
+                    this.presentToast(err)
+                    res.dismiss()
+                  })
+                break;
+            }
+          }).catch((err) => {
+            this.presentToast(err);
+            console.log(err);
+          });
       }).catch((err) =>{
-        console.log(err)
+        this.presentToast(err)
         res.dismiss()
       })
-    })
+    }) 
   }
 
   googleLogin(){
     this.loadingController.create({message:"Please wait"}).then((res) =>{
       res.present()
-      this.travelAppService.googleLogin().then(() =>{
-        this.router.navigateByUrl('/tabs');
-        res.dismiss();
+      this.travelAppService.googleLogin().then((user:any) =>{
+        this.checkIfUserExits(user.uid).then((isthereuser) =>{
+            switch (isthereuser) {
+              case true:
+                this.router.navigateByUrl('/tabs');
+                res.dismiss();
+                break;
+              case false:
+                  this.travelAppService.generateInitialUserDetails(user.displayName, user.email, user.photoURL).then(() =>{
+                    this.router.navigateByUrl('/tabs');
+                    res.dismiss();
+                  }).catch((err) =>{
+                    this.presentToast(err)
+                    res.dismiss()
+                  })
+                break;
+            }
+          }).catch((err) => {
+            this.presentToast(err);
+            console.log(err);
+          });
       }).catch((err) =>{
-        console.log(err)
+        this.presentToast(err)
         res.dismiss()
       })
     })  
-    
   }
   
+  checkIfUserExits(userId) {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('/users').child(userId).once('value', (snapshot) => {
+        var exists = (snapshot.val() !== null);
+        resolve(exists)
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
+
   register(){
-    if(this.firstname == "" || this.firstname.length < 2){
+    if(this.name == "" || this.name.length < 2){
       this.presentToast("First name field is either blank or too short")
-    }else if(this.lastname == "" || this.lastname.length < 2){
-      this.presentToast("Last name field is either blank or too short")
     }else if(this.email == "" || this.email.length < 3 ||
      !this.email.includes('@') || !this.email.includes('.')){
       this.presentToast("Invalid email address")
@@ -69,12 +113,17 @@ export class RegisterPage implements OnInit {
         message: 'Logging In',
       }).then((res) => {
         res.present();
-        this.travelAppService.createnewuser(this.firstname, this.lastname, this.email, this.password).then(() =>{
-          res.dismiss();
-          this.router.navigateByUrl('/tabs')
+        this.travelAppService.createnewuser(this.email, this.password).then(() =>{
+          this.travelAppService.generateInitialUserDetails(this.name, this.email, "").then(() =>{
+            res.dismiss();
+            this.router.navigateByUrl('/tabs')
+          }).catch((err) =>{
+            res.dismiss()
+            this.presentToast(err)
+          })
         }).catch((err) =>{
           res.dismiss()
-          this.presentToast(err)
+            this.presentToast(err)
         })
       });
     }

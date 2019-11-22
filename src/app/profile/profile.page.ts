@@ -13,8 +13,7 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class ProfilePage{
 
-  firstname = "";
-  lastname = "";
+  name = "";
   phonenumber = "";
   aboutMe = "";
   following = "";
@@ -27,6 +26,9 @@ export class ProfilePage{
   showGallery = false;
   showTrips = true;
   showMaps = false;
+  showTripsText = false;
+  showGalleryText = false;
+
   galleryimages = []
   trips = [];
 
@@ -40,50 +42,53 @@ export class ProfilePage{
     public loadingCtrl: LoadingController,
     public travelAppService: TravelAppService) { 
 
+      // this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
+      
+      this.useruid = firebase.auth().currentUser.uid;
 
-      this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
-      // this.useruid = firebase.auth().currentUser.uid;
-
+      console.log(this.useruid)
       this.loadingCtrl.create({message: "Fetching your profile details"}).then((res) =>{
         res.present()
 
         firebase.database().ref('/users').child(this.useruid).once('value', snapshot => {
-          this.firstname = snapshot.val().firstname;
-          this.lastname = snapshot.val().lastname;
+          this.name = snapshot.val().name;
           this.phonenumber = snapshot.val().phoneNumber;
           this.aboutMe = snapshot.val().aboutMe;
           this.following = snapshot.val().following;
           this.followers = snapshot.val().followers;
           this.provincesVisited = snapshot.val().provincesVisited;
-          if(snapshot.val().photoURL == undefined){
+          if(snapshot.val().photoURL == undefined || snapshot.val().photoURL == ""){
             this.base64ProfilePhoto = '../../assets/icon/user2.png';
           }else{
               this.base64ProfilePhoto = snapshot.val().photoURL;
           }
-          if(snapshot.val().coverPhoto == undefined){
-            this.base64CoverPhoto = '../../assets/icon/backg2.png';
+          if(snapshot.val().coverPhoto == undefined || snapshot.val().coverPhoto == ""){
+            this.base64CoverPhoto = '../../assets/backg2.png';
           }else{
               this.base64CoverPhoto = snapshot.val().coverPhoto;
           }
-
           }).then(() =>{
             setTimeout(() => {
             res.dismiss()
+              
             }, 1000);
-
-          }).catch(() =>{
+          }).catch((err) =>{
             res.dismiss()
-
+            this.presentToast(err)
           })
       })
 
       this.travelAppService.fetchTrips().then((trips:any) =>{
-        console.log(trips)
+        // console.log(trips)
         this.trips = trips;
 
-        this.trips.forEach(trip =>{
-          this.galleryimages.push(trip.photo);
-        })
+        this.checkTripsArray();
+
+          this.trips.forEach(trip =>{
+            this.galleryimages.push(trip.photo);
+
+            this.checkGalleryArray()
+          })
       })
 
       // this.geolocation.getCurrentPosition().then((resp) =>{
@@ -100,16 +105,10 @@ export class ProfilePage{
         header: 'Edit name',
         inputs: [
             {
-                name: 'firstname',
-                type: 'text',
-                value: this.firstname,
-                placeholder: 'Enter firstname'
-            },
-            {
-              name: 'lastname',
+              name: 'name',
               type: 'text',             
-               value: this.lastname,
-              placeholder: 'Enter lastname'
+               value: this.name,
+              placeholder: 'Enter Fullname'
           }
         ],
         buttons: [
@@ -125,14 +124,13 @@ export class ProfilePage{
                 handler: (alertData) => {
                   this.loadingCtrl.create({message:"Please wait"}).then((res) =>{
                     res.present();
-                    this.travelAppService.updateUserDetails(alertData.firstname, alertData.lastname, "aboutme").then(() =>{
-                      this.firstname = alertData.firstname;
-                      this.lastname = alertData.lastname;
+                    this.travelAppService.updateUserName(alertData.name).then(() =>{
+                      this.name = alertData.name;
                       res.dismiss();
-                      this.presentToast("Names updated successfully")
+                      this.presentToast("Name updated successfully")
                     }).catch((err) =>{
                       res.dismiss();
-                      this.presentToast("Names not updated" + err)
+                      this.presentToast("Name not updated" + err)
                     })
                   });
                     console.log(alertData);
@@ -152,7 +150,6 @@ export class ProfilePage{
       };
   
       console.log(i)
-  
       this.router.navigate(['tripdetails'], navigationExtras);
     }
 
@@ -161,17 +158,34 @@ export class ProfilePage{
       this.showTrips = true;
       this.showGallery = false;
       this.showMaps = false;
+      this.checkTripsArray()
+      this.checkGalleryArray()
     }else if(event.detail.value == "showMaps"){
       this.showMaps = true;
       this.showGallery = false;
       this.showTrips = false;
+      this.checkTripsArray()
+      this.checkGalleryArray()
     }else if(event.detail.value == "showGallery"){
       this.showGallery = true;
       this.showMaps = false;
       this.showTrips = false;
+      this.checkTripsArray()
+      this.checkGalleryArray()
     }
   }
 
+  checkTripsArray(){
+    if(this.trips == [] || this.trips == undefined){
+      this.showTripsText = true;
+    }
+  }
+
+  checkGalleryArray(){
+    if(this.galleryimages == [] || this.galleryimages == undefined){
+      this.showGalleryText = true;
+    }
+  }
 
   doRefresh(event){
 
@@ -191,34 +205,6 @@ export class ProfilePage{
       })
     })
   }
-
-
-
-  // ionViewDidLoad(){
-  //   console.log("yayayay")
-  // }
-
-  // saveProfile(){
-  //   if(this.firstname == "" || this.lastname == ""){
-  //     this.presentToast("Names field cannot be left blank")
-  //   }else if(this.phonenumber == ""){
-  //     this.presentToast("Phone Number field cannot be left blank")
-  //   }else if(this.aboutMe == ""){
-  //     this.presentToast("About me field cannot be left blank")
-  //   }else{
-  //     this.loadingCtrl.create({message: "Please wait"}).then((load) =>{
-  //       load.present();
-  //       this.travelAppService.updateUserDetails(this.firstname, this.lastname, this.phonenumber, this.aboutMe).then(() =>{
-  //         this.presentToast("Profile updated successfully");
-  //         load.dismiss();
-  //       }).catch((err) =>{
-  //         console.log(err)
-  //         load.dismiss();
-  //       })
-  //     })
-      
-  //   }
-  // }
 
   // async presentActionSheet(index) {
 

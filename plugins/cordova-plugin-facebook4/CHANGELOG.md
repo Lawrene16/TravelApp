@@ -1,3 +1,41 @@
+<a name="6.2.0"></a>
+# [6.2.0](https://github.com/jeduan/cordova-plugin-facebook4/releases/tag/v6.1.0)
+
+## Features
+
+* **iOS:** Update Facebook iOS SDK v5.7.0 ([Facebook iOS SDK changelog](https://github.com/facebook/facebook-objc-sdk/blob/master/CHANGELOG.md) | Released: September 30 2019)
+* **Android:** Set per default usage of Facebook Android SDK v5.5.2 ([Facebook Android SDK changelog](https://github.com/facebook/facebook-android-sdk/blob/master/CHANGELOG.md) | Released: October 4 2019)
+
+## Docs
+
+* Document two known errors related to Cocoapods, Facebook iOS SDK and their related solutions
+
+<a name="6.1.0"></a>
+# [6.1.0](https://github.com/jeduan/cordova-plugin-facebook4/releases/tag/v6.1.0)
+
+## Features
+
+* **iOS:** Update Facebook iOS SDK v5.6.0 ([Facebook iOS SDK changelog](https://github.com/facebook/facebook-objc-sdk/blob/master/CHANGELOG.md) | Released: July 15 2019)
+* **Android:** Set per default usage of Facebook Android SDK v5.5.1 ([Facebook Android SDK changelog](https://github.com/facebook/facebook-android-sdk/blob/master/CHANGELOG.md) | Released: July 29 2019)
+
+Thx [Francesco Tonini](https://github.com/francescotonini) for the PR 👍
+
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/jeduan/cordova-plugin-facebook4/releases/tag/v6.0.0)
+
+## Breaking change
+
+* **iOS:** use the [CocoaPods dependency manager](https://cocoapods.org) in order to satisfy the iOS Facebook SDK library dependencies ([#639](https://github.com/jeduan/cordova-plugin-facebook4/issues/639))
+
+### Notes
+
+See [iOS documentation](https://github.com/jeduan/cordova-plugin-facebook4/tree/master/docs/ios) for some notes about installation with Cocoapods.
+
+## Features
+
+* **iOS:** Update Facebook iOS SDK v5.2.3 ([Facebook iOS SDK changelog](https://github.com/facebook/facebook-objc-sdk/blob/master/CHANGELOG.md) | Released: July 15 2019)
+* **Android:** Set per default usage of Facebook Android SDK v5.2.0 ([Facebook Android SDK changelog](https://github.com/facebook/facebook-android-sdk/blob/master/CHANGELOG.md) | Released: July 29 2019)
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/jeduan/cordova-plugin-facebook4/releases/tag/v5.0.0)
 

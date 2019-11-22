@@ -66,17 +66,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-facebook4": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-facebook4@5.0.0"
-    },
-    "is_top_level": true,
-    "variables": {
-      "APP_ID": "669710856890390",
-      "APP_NAME": "TravelApp"
-    }
-  },
   "cordova-plugin-geolocation": {
     "source": {
       "type": "registry",
@@ -119,6 +108,25 @@
       "id": "es6-promise-plugin@^4.1.0"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4@^6.2.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "669710856890390",
+      "APP_NAME": "TravelApp"
+    }
+  },
+  "cordova-plugin-firebase-analytics": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase-analytics@^4.0.0"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

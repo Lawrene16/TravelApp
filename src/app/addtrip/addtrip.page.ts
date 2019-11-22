@@ -21,7 +21,9 @@ export class AddtripPage {
   eventTitle = "";
   province = "Mandaluyong";
 
-
+  countries = [];
+  states = [];
+  cities = [];
 
   constructor( public camera: Camera,
     public actionSheetCtrl: ActionSheetController,
@@ -29,19 +31,53 @@ export class AddtripPage {
     public loadingCtrl: LoadingController,
     public travelAppService: TravelAppService) { 
 
-      // this.useruid = firebase.auth().currentUser.uid;
-      this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
+      this.useruid = firebase.auth().currentUser.uid;
+      // this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
 
+      this.populateCountriesArray();
+
+      // this.populateStatesArray("AF");
+      // this.travelAppService.fetchAllStates("NG").then((states) =>{
+      //   // console.log(states);
+      //   this.states = states;
+      // });
+
+      // this.travelAppService.fetchAllCities("NG", "dfd").then((cities) =>{
+      //   // console.log(cities);
+      //   this.cities = cities;
+      // });
     }
 
+    onChange(selected){
+      this.populateStatesArray(selected)
+    }
+
+    onChange2(selected){
+      console.log(selected)
+    }
+
+    populateCountriesArray(){
+      this.travelAppService.fetchAllCountries().then((countries:any) =>{
+        for(var i = 0; i < Object.keys(countries).length; i++){
+          this.countries.push(countries[i])
+        }
+      });
+    }
+
+    populateStatesArray(country_code){
+      // this.travelAppService.fetchAllStates(country_code).then((states:any) =>{
+      //   console.log(states)
+      //   for(var i = 0; i < Object.keys(states).length; i++){
+      //     this.states.push(states[i])
+      //   }
+      // });
+
+      this.states = [{'label': "dgdfgdfg"}, {'label': "dgdfgdfg"}]
+      console.log(this.states)
+    }
 
   validateButton(event){
-    // console.log(this.fromDate)
-    // console.log(this.toDate)
-
     console.log(this.parseDate(this.fromDate))
-    // this.parseDate(this.toDate)
-
   }
 
   parseDate(date:any){
@@ -81,79 +117,6 @@ export class AddtripPage {
       })
     })
   }
-
-  // async presentActionSheet() {
-
-  //   const actionSheet = await this.actionSheetCtrl.create({
-  //     header: 'Options',
-  //     buttons: [
-  //       {
-  //         text: ' Capture Image',
-  //         icon: 'camera',
-  //         handler: () => {
-  //           this.AccessCamera();
-  //         }
-  //       },  
-  //     {
-  //       text: 'Pick from Gallery',
-  //       icon: 'photos',
-  //       handler: () => {
-  //         this.AccessGallery()
-  //       }
-  //     },
-  //     {
-  //       text: 'Cancel',
-  //       icon: 'close',
-  //       role: 'cancel',
-  //       handler: () => {
-  //       }
-  //     }]
-  //   });
-  //   await actionSheet.present();
-  // }
-
-  // AccessCamera() {
-
-  //   this.camera.getPicture({
-  //       targetWidth: 512,
-  //       targetHeight: 512,
-  //       correctOrientation: true,
-  //       sourceType: this.camera.PictureSourceType.CAMERA,
-  //       destinationType: this.camera.DestinationType.DATA_URL
-  //     }).then(
-  //       imageData => {
-  //         this.loadingCtrl.create({message: "Uploading photo"}).then((load) =>{
-  //           load.present()
-  //           if(index == 0){
-  //             this.base64CoverPhoto = "data:image/jpeg;base64," + imageData;
-  //             this.travelAppService.uploadCoverPhoto(this.useruid, this.base64CoverPhoto).then(() =>{
-  //               this.presentToast("Cover Photo Uploaded Successfully")
-  //               load.dismiss()
-  //             }).catch((err) =>{
-  //               this.presentToast("Cover Photo Not Uploaded")
-  //               load.dismiss()
-  //             });
-  //           }
-            
-            
-  //           else if(index == 1){
-  //             this.base64ProfilePhoto = "data:image/jpeg;base64," + imageData;
-  //             this.travelAppService.uploadProfilePic(this.useruid, this.base64ProfilePhoto).then(() =>{
-  //               this.presentToast("Profile Photo Uploaded Successfully")
-  //               load.dismiss()
-  //             }).catch((err) =>{
-  //               this.presentToast("Profile Photo Not Uploaded")
-  //               load.dismiss()
-  //             });
-  //           }
-            
-  //         })  
-  //       },
-  //       err => {
-  //         console.log(err);
-  //       }
-  //     );
-  // }
 
   AccessGallery() {
     this.camera.getPicture({
