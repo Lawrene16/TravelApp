@@ -8,7 +8,7 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 
 // import { Crop } from "@ionic-native/crop/ngx";
 // import { ImagePicker } from "@ionic-native/image-picker/ngx";
-import { Facebook } from "@ionic-native/facebook/ngx";
+// import { Facebook } from "@ionic-native/facebook/ngx";
 import { GooglePlus } from "@ionic-native/google-plus/ngx";
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -50,7 +50,7 @@ firebase.initializeApp(firebaseconfig);
     Geolocation,
     // Crop,
     SocialSharing,
-    Facebook,
+    // Facebook,
     // ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

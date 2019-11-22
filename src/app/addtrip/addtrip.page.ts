@@ -3,6 +3,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { ActionSheetController, LoadingController, ToastController } from '@ionic/angular';
 import { TravelAppService } from '../travel-app.service';
 import * as firebase from "firebase";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addtrip',
@@ -20,23 +21,26 @@ export class AddtripPage {
   toDate = "";
   eventTitle = "";
   province = "Mandaluyong";
-
-  countries = [];
+  frommax = "";
+  tomax = "";
   states = [];
   cities = [];
+  currentdate = new Date();
 
   constructor( public camera: Camera,
+    public router: Router,
     public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public travelAppService: TravelAppService) { 
 
-      this.useruid = firebase.auth().currentUser.uid;
-      // this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
+      // this.useruid = firebase.auth().currentUser.uid;
+      this.useruid = "ER9ayHUaZHPuWcUS0yq2oG77NRg2";
 
-      this.populateCountriesArray();
+      this.frommax = this.currentdate.getFullYear() + "-" + Number(this.currentdate.getMonth()+1) + "-" + this.currentdate.getDate()
+      // this.tomax = this.currentdate.getFullYear() + "-" + Number(this.currentdate.getMonth()+1) + "-" + this.currentdate.getDate();
 
-      // this.populateStatesArray("AF");
+      // this.populateStatesArray("PH");
       // this.travelAppService.fetchAllStates("NG").then((states) =>{
       //   // console.log(states);
       //   this.states = states;
@@ -46,22 +50,6 @@ export class AddtripPage {
       //   // console.log(cities);
       //   this.cities = cities;
       // });
-    }
-
-    onChange(selected){
-      this.populateStatesArray(selected)
-    }
-
-    onChange2(selected){
-      console.log(selected)
-    }
-
-    populateCountriesArray(){
-      this.travelAppService.fetchAllCountries().then((countries:any) =>{
-        for(var i = 0; i < Object.keys(countries).length; i++){
-          this.countries.push(countries[i])
-        }
-      });
     }
 
     populateStatesArray(country_code){
@@ -76,9 +64,28 @@ export class AddtripPage {
       console.log(this.states)
     }
 
-  validateButton(event){
-    console.log(this.parseDate(this.fromDate))
-  }
+    validateFromButton(event){
+      var year = this.fromDate.slice(0, -25);
+      var month = this.fromDate.slice(5, -22);
+      var day = this.fromDate.slice(8, -19);
+
+
+      this.tomax = year + "-" + month + "-" + day;
+
+
+    }
+
+  // validateToButton(event){
+  //   // console.log(this.parseDate(this.toDate));
+
+  //   // if(Number(this.toDate.slice(0, -25)) < Number(this.fromDate.slice(0, -25))){
+  //   //   this.presentToast("To year cannot be less than from year")
+  //   // }else if(Number(this.toDate.slice(5, -22)) < Number(this.fromDate.slice(5, -22))){
+  //   //   this.presentToast("To month cannot be less than from month")
+  //   // }else if(Number(this.toDate.slice(5, -22)) < Number(this.fromDate.slice(5, -22))){
+  //   //   this.presentToast("To month cannot be less than from month")
+  //   // }
+  // }
 
   parseDate(date:any){
     var year = date.slice(0, -25);
@@ -86,11 +93,9 @@ export class AddtripPage {
     var day = date.slice(8, -19);
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-    var newdate = months[month - 1] + ', ' + day + ', ' + year;
+    var newdate = months[month - 1] + ' ' + day + ', ' + year;
 
     return newdate;
-    // console.log(newdate)
-    // console.log(date)
   }
 
   uploadTrip(){
@@ -110,12 +115,18 @@ export class AddtripPage {
         this.province = ""
 
         this.presentToast("Trip uploaded successfully");
+        this.close();
+        
       }).catch((err) =>{
                 res.dismiss()
 
         console.log(err)
       })
     })
+  }
+
+  close(){
+    this.router.navigateByUrl('/tabs/profile');
   }
 
   AccessGallery() {

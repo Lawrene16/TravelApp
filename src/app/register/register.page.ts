@@ -27,36 +27,36 @@ export class RegisterPage implements OnInit {
   }
 
 
-  fblogin(){
-    this.loadingController.create({message:"Please wait"}).then((res) =>{
-      res.present()
-      this.travelAppService.facebookLogin().then((user:any) =>{
-        this.checkIfUserExits(user.uid).then((isthereuser) =>{
-            switch (isthereuser) {
-              case true:
-                this.router.navigateByUrl('/tabs');
-                res.dismiss();
-                break;
-              case false:
-                  this.travelAppService.generateInitialUserDetails(user.displayName, user.email, user.photoURL).then(() =>{
-                    this.router.navigateByUrl('/tabs');
-                    res.dismiss();
-                  }).catch((err) =>{
-                    this.presentToast(err)
-                    res.dismiss()
-                  })
-                break;
-            }
-          }).catch((err) => {
-            this.presentToast(err);
-            console.log(err);
-          });
-      }).catch((err) =>{
-        this.presentToast(err)
-        res.dismiss()
-      })
-    }) 
-  }
+  // fblogin(){
+  //   this.loadingController.create({message:"Please wait"}).then((res) =>{
+  //     res.present()
+  //     this.travelAppService.facebookLogin().then((user:any) =>{
+  //       this.checkIfUserExits(user.uid).then((isthereuser) =>{
+  //           switch (isthereuser) {
+  //             case true:
+  //               this.router.navigateByUrl('/tabs');
+  //               res.dismiss();
+  //               break;
+  //             case false:
+  //                 this.travelAppService.generateInitialUserDetails(user.displayName, user.email, user.photoURL).then(() =>{
+  //                   this.router.navigateByUrl('/tabs');
+  //                   res.dismiss();
+  //                 }).catch((err) =>{
+  //                   this.presentToast(err)
+  //                   res.dismiss()
+  //                 })
+  //               break;
+  //           }
+  //         }).catch((err) => {
+  //           this.presentToast(err);
+  //           console.log(err);
+  //         });
+  //     }).catch((err) =>{
+  //       this.presentToast(err)
+  //       res.dismiss()
+  //     })
+  //   }) 
+  // }
 
   googleLogin(){
     this.loadingController.create({message:"Please wait"}).then((res) =>{

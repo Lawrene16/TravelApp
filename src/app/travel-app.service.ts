@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase";
-import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook/ngx";
+// import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook/ngx";
 import { GooglePlus } from "@ionic-native/google-plus/ngx";
 import { ToastController } from "@ionic/angular";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
@@ -16,7 +16,7 @@ export class TravelAppService {
 
   // Note the parent id is the ID of the parent not the parent_id of the parent
   constructor(
-    public faceBook: Facebook,
+    // public faceBook: Facebook,
     public googlePlus: GooglePlus,
     public httpClient: HttpClient,
     public toastCtrl: ToastController
@@ -154,69 +154,69 @@ export class TravelAppService {
   }
 
   // Login with facebook
-  facebookLogin() {
-    return new Promise((resolve, reject) => {
+  // facebookLogin() {
+  //   return new Promise((resolve, reject) => {
 
-      this.faceBook.getLoginStatus().then((res) =>{
-        if (res.status === 'connected') {
-          // Already logged in to FB so pass credentials to provider (in my case firebase)
-          let credentials2 = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-          firebase.auth().signInWithCredential(credentials2).then((result2) => {
-            var user2 = result2.user;
-            resolve(user2);
-          }).catch((err) =>{
-            reject(err)
-          });
-      } else {
-          // Not already logged in to FB so sign in
-          this.faceBook.login(['public_profile', 'user_friends', 'email'])
-          .then((response: FacebookLoginResponse) => {
-            this.presentToast("response");
-            const facebookCredential = firebase.auth.FacebookAuthProvider.credential(
-              response.authResponse.accessToken
-            );
-            firebase.auth().signInWithCredential(facebookCredential)
-              .then(result => {
-                var user = result.user;
-                resolve(user);
-              })
-              .catch(err => {
-                reject(err);
-              });
-          })
-          .catch(err => {
-            this.presentToast(err);
-          });
-      }
-      });
-    });
-  }
+  //     this.faceBook.getLoginStatus().then((res) =>{
+  //       if (res.status === 'connected') {
+  //         // Already logged in to FB so pass credentials to provider (in my case firebase)
+  //         let credentials2 = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+  //         firebase.auth().signInWithCredential(credentials2).then((result2) => {
+  //           var user2 = result2.user;
+  //           resolve(user2);
+  //         }).catch((err) =>{
+  //           reject(err)
+  //         });
+  //     } else {
+  //         // Not already logged in to FB so sign in
+  //         this.faceBook.login(['public_profile', 'user_friends', 'email'])
+  //         .then((response: FacebookLoginResponse) => {
+  //           this.presentToast("response");
+  //           const facebookCredential = firebase.auth.FacebookAuthProvider.credential(
+  //             response.authResponse.accessToken
+  //           );
+  //           firebase.auth().signInWithCredential(facebookCredential)
+  //             .then(result => {
+  //               var user = result.user;
+  //               resolve(user);
+  //             })
+  //             .catch(err => {
+  //               reject(err);
+  //             });
+  //         })
+  //         .catch(err => {
+  //           this.presentToast(err);
+  //         });
+  //     }
+  //     });
+  //   });
+  // }
 
-  test2(){
+  // test2(){
 
-    return new Promise((resolve, reject) => {
-      var provider = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        // var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
+  //   return new Promise((resolve, reject) => {
+  //     var provider = new firebase.auth.FacebookAuthProvider();
+  //     firebase.auth().signInWithPopup(provider).then(function(result) {
+  //       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  //       // var token = result.credential.accessToken;
+  //       // The signed-in user info.
+  //       var user = result.user;
   
-        resolve(user)
-        // ...
-      }).catch(function(error) {
-        // Handle Errors here.
-        reject(error)
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
-    })
-  }
+  //       resolve(user)
+  //       // ...
+  //     }).catch(function(error) {
+  //       // Handle Errors here.
+  //       reject(error)
+  //       var errorCode = error.code;
+  //       var errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       var email = error.email;
+  //       // The firebase.auth.AuthCredential type that was used.
+  //       var credential = error.credential;
+  //       // ...
+  //     });
+  //   })
+  // }
 
   async presentToast(message) {
     const toast = await this.toastCtrl.create({
